@@ -1,10 +1,5 @@
 /**
- * ========================================================
- * Expense Tracker App — main.js
- * ========================================================
- * Aplikasi pencatatan keuangan pribadi berbasis Vanilla JS.
- * Target penilaian: Advanced (4/4) untuk seluruh kriteria.
- *
+
  * Fitur:
  *   - Tambah, edit, hapus transaksi
  *   - Validasi input (title & amount)
@@ -16,10 +11,7 @@
  * ========================================================
  */
 
-// ========================================================
-// STATE
-// ========================================================
-
+/*
 /** Menyimpan seluruh data transaksi */
 let transactions = [];
 
@@ -82,7 +74,7 @@ function loadData() {
   }
   try {
     transactions = JSON.parse(stored);
-  } catch {
+  } catch (e) {
     transactions = [];
   }
 }
@@ -188,8 +180,8 @@ function validateInput(title, amount) {
     alert('Judul transaksi tidak boleh kosong!');
     return false;
   }
-  if (amount < 1) {
-    alert('Nominal transaksi harus lebih dari 0!');
+  if (isNaN(amount) || amount < 1) {
+    alert('Nominal transaksi harus berupa angka yang valid dan lebih dari 0!');
     return false;
   }
   return true;
@@ -322,7 +314,7 @@ function createTransactionCard(transaction) {
   var typeBtn = document.createElement('button');
   typeBtn.setAttribute('data-testid', 'transactionItemEditTypeButton');
   typeBtn.classList.add('tracker-transaction-item__btn');
-  typeBtn.textContent = 'Ubah Tipe';
+  typeBtn.textContent = 'Ubah';
   typeBtn.addEventListener('click', function () {
     toggleTransactionType(transaction.id);
     dispatchUpdate();
@@ -359,8 +351,8 @@ function createTransactionCard(transaction) {
  * Terapkan filter pencarian jika ada keyword.
  */
 function renderTransactions() {
-  el.incomeList.innerHTML = '';
-  el.expenseList.innerHTML = '';
+  el.incomeList.textContent = '';
+  el.expenseList.textContent = '';
 
   var filtered = searchTransactions(searchKeyword);
 
