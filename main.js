@@ -250,6 +250,7 @@ function createTransactionCard(transaction) {
   // --- Kartu utama ---
   var card = document.createElement('div');
   card.setAttribute('data-testid', 'transactionItem');
+  card.setAttribute('data-transactionid', transaction.id);
   card.classList.add('tracker-transaction-item');
 
   // --- Icon (visual) ---
