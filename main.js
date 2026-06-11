@@ -275,7 +275,7 @@ function createTransactionCard(transaction) {
   var dateEl = document.createElement('p');
   dateEl.setAttribute('data-testid', 'transactionItemDate');
   dateEl.classList.add('tracker-transaction-item__date');
-  dateEl.textContent = transaction.date;
+  dateEl.textContent = 'Tanggal: ' + transaction.date;
 
   detail.appendChild(titleEl);
   detail.appendChild(dateEl);
@@ -291,12 +291,12 @@ function createTransactionCard(transaction) {
     'tracker-transaction-item__amount',
     'tracker-transaction-item__amount--' + transaction.type
   );
-  amountEl.textContent = formatCurrency(transaction.amount);
+  amountEl.textContent = 'Nominal: ' + formatCurrency(transaction.amount);
 
   // Label tipe
   var typeEl = document.createElement('p');
   typeEl.setAttribute('data-testid', 'transactionItemType');
-  typeEl.textContent = transaction.type;
+  typeEl.textContent = 'Tipe: ' + (transaction.type === 'income' ? 'Pemasukan' : 'Pengeluaran');
 
   // --- Actions ---
   var actionsDiv = document.createElement('div');
@@ -315,7 +315,7 @@ function createTransactionCard(transaction) {
   var typeBtn = document.createElement('button');
   typeBtn.setAttribute('data-testid', 'transactionItemEditTypeButton');
   typeBtn.classList.add('tracker-transaction-item__btn');
-  typeBtn.textContent = 'Ubah';
+  typeBtn.textContent = 'Ubah Tipe';
   typeBtn.addEventListener('click', function () {
     toggleTransactionType(transaction.id);
     dispatchUpdate();
