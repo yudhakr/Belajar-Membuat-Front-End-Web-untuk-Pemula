@@ -10,7 +10,7 @@ expense-tracker-starter-project/
 ├── index.html   ← Struktur halaman (jangan diubah, kecuali bagian greeting)
 ├── style.css    ← Tampilan visual (bebas dimodifikasi untuk portofolio)
 ├── main.js      ← Tempat Anda menulis seluruh logika JavaScript
-└── README.md    ← Panduan ini
+
 ```
 
 ---
@@ -28,4 +28,11 @@ Proyek ini adalah HTML statis, sehingga tidak memerlukan instalasi apapun.
 
 ---
 
+## Fitur
+1. Menambahkan
+2. Mengurangi 
+3. Mengedit
+4. Mengubah
+5. Menghapus 
+6. Pencarian
 
